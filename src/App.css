@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Nunito:wght@300&display=swap');
+
+.App {
+  min-height: 100vh;
+  /* padding-bottom: 100px; */
+}
+
+body {
+  overflow-x: hidden;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background-color: rgb(54, 54, 54);
+  color: white;
+  /* height: 100%;
+  margin: 0;
+  padding: 0; */
+}
+
+.text-to-right {
+  direction: rtl;
+  text-align: right;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* .ml-auto {
+  display: flex;
+  align-items: center;
+  justify-content: row;
+} */
+
+.uniq-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.nfts-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.wishlist-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.collection-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.balance {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: larger;
+  color: rgb(153, 255, 0);
+  border: 1px solid rgb(153, 255, 0);
+  margin-left: 3em;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: row;
+  
+}
+
+.navbar-brand.brand {
+  color: white;
+  padding: 0;
+}
+
+.navbar-brand.nav-link.link {
+  color: white !important;
+}
+
+.navItem {
+  color: white !important;
+}
+
+.nav-link {
+  padding: 0;
+}
+
+@media screen and (max-width: 500px){
+.brand{
+  display: none!important;
+}
+}
+  
+/* .main-container {
+  width: 100%;
+} */
+
+img.moviesLogo {
+  height: 80px;
+  width: 80px;
+}
