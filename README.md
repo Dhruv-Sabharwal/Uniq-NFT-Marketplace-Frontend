@@ -1,6 +1,6 @@
 # Uniq NFT Marketplace 
 
-### A marketplace to Buy, Sell and Mint NFTS!
+### A marketplace to Buy, Sell and Mint NFTs!
 
 ## Heroku Deployment: https://uniq-nft.herokuapp.com/
 ## Backend Repository: https://github.com/Dhruv-Sabharwal/Uniq-NFT-Marketplace-Backend
@@ -133,7 +133,7 @@
 
 <img width="579" alt="nftmo" src="https://media.github.ccs.neu.edu/user/10195/files/8b761052-4c9a-466e-872c-108bbc2d561d">
 
-### This showss how the nft can be accessed from the react jsx files
+### This shows how the nft can be accessed from the react jsx files
 
 <img width="633" alt="nft_card" src="https://media.github.ccs.neu.edu/user/10195/files/77e9dcc0-e9c5-48ff-8c0c-0db35de7fd71">
 
