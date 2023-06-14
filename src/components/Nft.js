@@ -143,41 +143,42 @@ function Nft({ user, setUser }) {
             </Card>
             <br></br>
             <br></br>
-            {user && nft.owner === user.googleId ? (
-              <form
-                onSubmit={handleSubmit((data, e) => {
-                  try {
-                    sellNft(nft.id, data);
-                  } catch (e) {
-                    console.log(e);
-                  }
-                })}
-              >
-                <input
-                  key={nft.id}
-                  placeholder="0.05"
-                  type="number"
-                  step="0.01"
-                  min="0"
-                  {...register("price", { required: true })}
-                />
-                {errors.price && <span className="error">Required</span>}
-                <input type="submit" value="Put up for sale" />
-              </form>
-            ) : (
-              user.googleId &&
-              nft &&
-              nft.upForSale && (
-                <Button
-                  className="buyBtn"
-                  onClick={() => {
-                    buyNft(nft.id, user.googleId);
-                  }}
+            {user &&
+              (nft.owner === user.googleId ? (
+                <form
+                  onSubmit={handleSubmit((data, e) => {
+                    try {
+                      sellNft(nft.id, data);
+                    } catch (e) {
+                      console.log(e);
+                    }
+                  })}
                 >
-                  Buy
-                </Button>
-              )
-            )}
+                  <input
+                    key={nft.id}
+                    placeholder="0.05"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    {...register("price", { required: true })}
+                  />
+                  {errors.price && <span className="error">Required</span>}
+                  <input type="submit" value="Put up for sale" />
+                </form>
+              ) : (
+                user.googleId &&
+                nft &&
+                nft.upForSale && (
+                  <Button
+                    className="buyBtn"
+                    onClick={() => {
+                      buyNft(nft.id, user.googleId);
+                    }}
+                  >
+                    Buy
+                  </Button>
+                )
+              ))}
           </Col>
         </Row>
       </Container>

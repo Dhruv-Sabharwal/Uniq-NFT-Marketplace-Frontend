@@ -13,11 +13,11 @@ import Footer from "./components/Footer";
 import Nft from "./components/Nft";
 import React from "react";
 import FavoritesDataService from "./services/favorites";
-import UserDataService from "./services/users"
+import UserDataService from "./services/users";
 import Favorites from "./components/Favorites.js";
 import LandingPage from "./components/LandingPage.js";
 import NftCollection from "./components/NftCollection";
-import Mint from "./components/Mint"
+import Mint from "./components/Mint";
 
 import "./App.css";
 
@@ -35,8 +35,6 @@ function App() {
     setFavorites(favorites.filter((f) => f !== movieId));
   };
 
-
-  
   useEffect(() => {
     let loginData = JSON.parse(localStorage.getItem("login"));
     if (loginData) {
@@ -51,26 +49,20 @@ function App() {
     }
   }, []);
 
-
   const retrieveFavorites = useCallback((user) => {
-    
-    if (user) { 
-      console.log("retrieveFavorites", user )
-      console.log("user retrieveFavorites in App js", user.data)
+    if (user) {
       FavoritesDataService.getAllFavorites(user.googleId)
-      .then((response) => {
-        setFavorites(response.data.favorites);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+        .then((response) => {
+          setFavorites(response.data.favorites);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
   }, []);
 
-
   useEffect(() => {
     if (user) {
-      console.log("user in useEffect App js", user)
       retrieveFavorites(user);
     }
   }, [user, retrieveFavorites]);
@@ -91,12 +83,16 @@ function App() {
     }
   }, [favorites, updateFavorites, user]);
 
-  console.log("user in app js", user)
-
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <div className="App">
-        <Navbar className="navbar" bg="dark" expand="lg" sticky="top" variant="dark">
+        <Navbar
+          className="navbar"
+          bg="dark"
+          expand="lg"
+          sticky="top"
+          variant="dark"
+        >
           <Container className="container-fluid">
             <Navbar.Brand className="brand" href="/">
               <img
@@ -114,23 +110,38 @@ function App() {
                 </Nav.Link>
                 {user && (
                   <>
-                  <Nav.Link className="wishlist-text" as={Link} to={"/favorites"}>
-                    Wishlist
-                  </Nav.Link>
-                
-                  <Nav.Link className="collection-text" as={Link} to={"/collection"}>
-                    My Collection
-                  </Nav.Link>
+                    <Nav.Link
+                      className="wishlist-text"
+                      as={Link}
+                      to={"/favorites"}
+                    >
+                      Wishlist
+                    </Nav.Link>
 
-                  <Nav.Link className="collection-text" as={Link} to={"/mint"}>
-                    Mint NFT
-                  </Nav.Link>
-            
+                    <Nav.Link
+                      className="collection-text"
+                      as={Link}
+                      to={"/collection"}
+                    >
+                      My Collection
+                    </Nav.Link>
+
+                    <Nav.Link
+                      className="collection-text"
+                      as={Link}
+                      to={"/mint"}
+                    >
+                      Mint NFT
+                    </Nav.Link>
                   </>
                 )}
               </Nav>
             </Navbar.Collapse>
-            {user ? <Logout setUser={setUser} /> : <Login setUser={setUser} user={user} />}
+            {user ? (
+              <Logout setUser={setUser} />
+            ) : (
+              <Login setUser={setUser} user={user} />
+            )}
           </Container>
         </Navbar>
 
@@ -148,7 +159,11 @@ function App() {
               />
             }
           />
-          <Route exact path={"/nfts/:id/"} element={<Nft user={user} setUser={setUser}/>} />
+          <Route
+            exact
+            path={"/nfts/:id/"}
+            element={<Nft user={user} setUser={setUser} />}
+          />
           <Route
             exact
             path={"/favorites"}
@@ -165,13 +180,9 @@ function App() {
             path={"/collection"}
             element={<NftCollection user={user} />}
           />
-          <Route
-            exact 
-            path={"/mint"}
-            element={<Mint user={user} />}
-          />
+          <Route exact path={"/mint"} element={<Mint user={user} />} />
         </Routes>
-        
+
         <Footer />
       </div>
     </GoogleOAuthProvider>
