@@ -2,7 +2,7 @@
 
 ### A marketplace to Buy, Sell and Mint NFTs!
 
-## Heroku Deployment: https://uniq-nft.herokuapp.com/
+## Public Deployment: https://uniq-nft.netlify.app/
 ## Backend Repository: https://github.com/Dhruv-Sabharwal/Uniq-NFT-Marketplace-Backend
 
 # Frontend 
